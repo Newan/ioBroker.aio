@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
-    "@sentry/browser": "^6.3.5"
+    "@sentry/browser": "^6.3.5",
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.16",
@@ -40,8 +41,7 @@
     "@types/sinon": "^10.0.0",
     "@types/sinon-chai": "^3.2.5",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
-    "@typescript-eslint/parser": "^4.22.1",
-    "axios": "^0.21.1",
+    "@typescript-eslint/parser": "^4.22.1",    
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "eslint": "^7.25.0",

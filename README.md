@@ -13,7 +13,7 @@
 
 ## aio adapter for ioBroker
 
-Read values from  Hansol Technics AIO system
+Read values from Hansol Technics AIO system
 
 
 ## Changelog
