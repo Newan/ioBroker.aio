@@ -1,0 +1,97 @@
+{
+    "common": {
+        "name": "aio",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "titleLang": {
+            "en": "Hansol Technics AIO",
+            "de": "Hansol Technics AIO",
+            "ru": "Hansol Technics AIO",
+            "pt": "Hansol Technics AIO",
+            "nl": "Hansol Technics AIO",
+            "fr": "Hansol Technics AIO",
+            "it": "Hansol Technics AIO",
+            "es": "Hansol Technics AIO",
+            "pl": "Hansol Technics AIO",
+            "zh-cn": "汉索科技AIO"
+        },
+        "desc": {
+            "en": "Read values from Hansol Technics AIO system",
+            "de": "Lesen Sie die Werte aus dem AIO-System von Hansol Technics",
+            "ru": "Считайте значения из системы Hansol Technics AIO",
+            "pt": "Leia os valores do sistema AIO da Hansol Technics",
+            "nl": "Lees waarden van het Hansol Technics AIO-systeem",
+            "fr": "Lire les valeurs du système AIO Hansol Technics",
+            "it": "Leggere i valori dal sistema Hansol Technics AIO",
+            "es": "Leer valores del sistema AIO de Hansol Technics",
+            "pl": "Odczytaj wartości z systemu Hansol Technics AIO",
+            "zh-cn": "从Hansol Technics AIO系统读取值"
+        },
+        "authors": [
+            "Newan <info@newan.de>"
+        ],
+        "keywords": [
+            "ESS Hansol AIO"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "icon": "aio.png",
+        "main": "build/main.js",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Newan/ioBroker.aio/master/admin/aio.png",
+        "readme": "https://github.com/Newan/ioBroker.aio/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "energy",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ]
+    },
+    "native": {
+        "url": "",
+        "polltime": 30
+    },
+    "objects": [],
+    "main": "build/main.js",
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },        
+        {
+        "_id": "info.connection",
+        "type": "state",
+        "common": {
+            "role": "indicator.connected",
+            "name": "If communication with aio works",
+            "type": "boolean",
+            "read": true,
+            "write": false,
+            "def": false
+        },
+        "native": {}
+    }]
+}

@@ -1,0 +1,36 @@
+{
+    "cli": true,
+    "adapterName": "aio",
+    "title": "Hansol Technics AIO",
+    "description": "Read values from  Hansol Technics AIO system",
+    "keywords": [
+        "energy PV ESS Hansol AIO"
+    ],
+    "expert": "no",
+    "features": [
+        "adapter"
+    ],
+    "adminFeatures": [],
+    "type": "energy",
+    "startMode": "daemon",
+    "connectionType": "local",
+    "dataSource": "poll",
+    "connectionIndicator": "no",
+    "language": "TypeScript",
+    "adminReact": "yes",
+    "tools": [
+        "ESLint"
+    ],
+    "indentation": "Space (4)",
+    "quotes": "single",
+    "es6class": "yes",
+    "authorName": "Newan",
+    "authorGithub": "Newan",
+    "authorEmail": "info@newan.de",
+    "gitRemoteProtocol": "HTTPS",
+    "gitCommit": "no",
+    "license": "MIT License",
+    "ci": "gh-actions",
+    "dependabot": "no",
+    "creatorVersion": "1.33.0"
+}
