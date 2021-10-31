@@ -1,0 +1,78 @@
+{
+    "common": {
+        "name": "aio",
+        "version": "0.0.1",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "titleLang": {
+            "en": "Read values from Hansol Technics AIO system",
+            "de": "Read values from Hansol Technics AIO system",
+            "ru": "Read values from Hansol Technics AIO system",
+            "pt": "Read values from Hansol Technics AIO system",
+            "nl": "Read values from Hansol Technics AIO system",
+            "fr": "Read values from Hansol Technics AIO system",
+            "it": "Read values from Hansol Technics AIO system",
+            "es": "Read values from Hansol Technics AIO system",
+            "pl": "Read values from Hansol Technics AIO system",
+            "zh-cn": "Read values from Hansol Technics AIO system"
+        },
+        "desc": {
+            "en": "aio",
+            "de": "aio",
+            "ru": "aio",
+            "pt": "aio",
+            "nl": "aio",
+            "fr": "aio",
+            "it": "aio",
+            "es": "aio",
+            "pl": "aio",
+            "zh-cn": "aio"
+        },
+        "authors": [
+            "Newan <info@newan.de>"
+        ],
+        "keywords": [
+            "ioBroker",    
+            "ESS",
+            "AIO",
+            "Hansol"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "build/main.js",
+        "icon": "aio.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Newan/ioBroker.aio/master/admin/aio.png",
+        "readme": "https://github.com/Newan/ioBroker.aio/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "energy",
+        "compact": true,
+        "connectionType": "cloud",
+        "dataSource": "poll",
+        "materialize": true,
+        "dependencies": [
+            {
+                "js-controller": ">=2.0.0"
+            }
+        ]
+    },
+    "native": {
+        "option1": true,
+        "option2": "42"
+    },
+    "objects": [],
+    "instanceObjects": []
+}
