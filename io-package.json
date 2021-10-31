@@ -70,9 +70,232 @@
         ]
     },
     "native": {
-        "option1": true,
-        "option2": "42"
+        "demoData": true,
+        "polltime": 100,
+        "ip": "0.0.0.0"
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "If communication with aio works",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.ColecTm",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "ColecTm",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.PowerOutletPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "PowerOutletPw",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.GridPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "GridPw",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.UnitPrice",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "UnitPrice",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.ConsPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "ConsPw",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.BtSoc",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "BtSoc",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.PcsPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "PcsPw",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.AbsPcsPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "AbsPcsPw",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.PvPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "PvPw",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.GridStusCd",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "GridStusCd",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.BtStusCd",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "BtStusCd",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.BtPw",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "BtPw",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.OperStusCd",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "OperStusCd",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.EmsOpMode",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "EmsOpMode",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.RankPer",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "RankPer",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "status.ErrorCnt",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "ErrorCnt",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }  
+    ]
 }

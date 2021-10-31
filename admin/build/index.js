@@ -84594,8 +84594,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var react_1 = __importDefault(require("react"));
 
-var styles_1 = require("@material-ui/core/styles");
-
 var TextField_1 = __importDefault(require("@material-ui/core/TextField"));
 
 var Input_1 = __importDefault(require("@material-ui/core/Input"));
@@ -84614,8 +84612,23 @@ var Checkbox_1 = __importDefault(require("@material-ui/core/Checkbox"));
 
 var i18n_1 = __importDefault(require("@iobroker/adapter-react/i18n"));
 
-var styles = function styles() {
+var styles_1 = require("@material-ui/core/styles");
+
+var styles = function styles(theme) {
   return {
+    root: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.paper,
+      display: 'flex',
+      height: 'calc(100% - 102px)'
+    },
+    tabs: {
+      borderRight: "1px solid " + theme.palette.divider
+    },
+    tabpanel: {
+      width: '100%',
+      overflowY: 'scroll'
+    },
     input: {
       marginTop: 0,
       minWidth: 400
@@ -84625,14 +84638,14 @@ var styles = function styles() {
     },
     card: {
       maxWidth: 345,
-      textAlign: "center"
+      textAlign: 'center'
     },
     media: {
       height: 180
     },
     column: {
-      display: "inline-block",
-      verticalAlign: "top",
+      display: 'inline-block',
+      verticalAlign: 'top',
       marginRight: 20
     },
     columnLogo: {
@@ -84640,10 +84653,10 @@ var styles = function styles() {
       marginRight: 0
     },
     columnSettings: {
-      width: "calc(100% - 370px)"
+      width: 'calc(100% - 370px)'
     },
     controlElement: {
-      //background: "#d2d2d2",
+      background: '#d2d2d2',
       marginBottom: 5
     }
   };
@@ -84668,7 +84681,7 @@ function (_super) {
       label: i18n_1.default.t(title),
       className: this.props.classes.input + " " + this.props.classes.controlElement,
       value: this.props.native[attr],
-      type: type || "text",
+      type: type || 'text',
       onChange: function onChange(e) {
         return _this.props.onChange(attr, e.target.value);
       },
@@ -84685,18 +84698,18 @@ function (_super) {
         paddingTop: 5
       }, style)
     }, react_1.default.createElement(Select_1.default, {
-      value: this.props.native[attr] || "_",
+      value: this.props.native[attr] || '_',
       onChange: function onChange(e) {
-        return _this.props.onChange(attr, e.target.value === "_" ? "" : e.target.value);
+        return _this.props.onChange(attr, e.target.value === '_' ? '' : e.target.value);
       },
       input: react_1.default.createElement(Input_1.default, {
         name: attr,
-        id: attr + "-helper"
+        id: attr + '-helper'
       })
     }, options.map(function (item) {
       return react_1.default.createElement(MenuItem_1.default, {
-        key: "key-" + item.value,
-        value: item.value || "_"
+        key: 'key-' + item.value,
+        value: item.value || '_'
       }, i18n_1.default.t(item.title));
     })), react_1.default.createElement(FormHelperText_1.default, null, i18n_1.default.t(title)));
   };
@@ -84722,20 +84735,23 @@ function (_super) {
   };
 
   Settings.prototype.render = function () {
-    return react_1.default.createElement("form", {
+    var classes = this.props.classes;
+    return react_1.default.createElement("div", {
+      className: classes.root
+    }, react_1.default.createElement("form", {
       className: this.props.classes.tab
-    }, this.renderCheckbox("option1", "option1"), react_1.default.createElement("br", null), this.renderInput("option2", "option2", "text"));
+    }, this.renderInput('ip', 'ip', 'text'), " ", react_1.default.createElement("br", null), this.renderInput('polltime', 'polltime', 'number')));
   };
 
   return Settings;
 }(react_1.default.Component);
 
 exports.default = (0, styles_1.withStyles)(styles)(Settings);
-},{"react":"../../node_modules/react/index.js","@material-ui/core/styles":"../../node_modules/@material-ui/core/esm/styles/index.js","@material-ui/core/TextField":"../../node_modules/@material-ui/core/esm/TextField/index.js","@material-ui/core/Input":"../../node_modules/@material-ui/core/esm/Input/index.js","@material-ui/core/FormHelperText":"../../node_modules/@material-ui/core/esm/FormHelperText/index.js","@material-ui/core/FormControl":"../../node_modules/@material-ui/core/esm/FormControl/index.js","@material-ui/core/Select":"../../node_modules/@material-ui/core/esm/Select/index.js","@material-ui/core/MenuItem":"../../node_modules/@material-ui/core/esm/MenuItem/index.js","@material-ui/core/FormControlLabel":"../../node_modules/@material-ui/core/esm/FormControlLabel/index.js","@material-ui/core/Checkbox":"../../node_modules/@material-ui/core/esm/Checkbox/index.js","@iobroker/adapter-react/i18n":"../../node_modules/@iobroker/adapter-react/i18n.js"}],"i18n/en.json":[function(require,module,exports) {
+},{"react":"../../node_modules/react/index.js","@material-ui/core/TextField":"../../node_modules/@material-ui/core/esm/TextField/index.js","@material-ui/core/Input":"../../node_modules/@material-ui/core/esm/Input/index.js","@material-ui/core/FormHelperText":"../../node_modules/@material-ui/core/esm/FormHelperText/index.js","@material-ui/core/FormControl":"../../node_modules/@material-ui/core/esm/FormControl/index.js","@material-ui/core/Select":"../../node_modules/@material-ui/core/esm/Select/index.js","@material-ui/core/MenuItem":"../../node_modules/@material-ui/core/esm/MenuItem/index.js","@material-ui/core/FormControlLabel":"../../node_modules/@material-ui/core/esm/FormControlLabel/index.js","@material-ui/core/Checkbox":"../../node_modules/@material-ui/core/esm/Checkbox/index.js","@iobroker/adapter-react/i18n":"../../node_modules/@iobroker/adapter-react/i18n.js","@material-ui/core/styles":"../../node_modules/@material-ui/core/esm/styles/index.js"}],"i18n/en.json":[function(require,module,exports) {
 module.exports = {
   "aio adapter settings": "Adapter settings for aio",
-  "option1": "option1",
-  "option2": "option2"
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/de.json":[function(require,module,exports) {
 module.exports = {
@@ -84873,16 +84889,16 @@ function (_super) {
     var extendedProps = __assign(__assign({}, props), {
       encryptedFields: [],
       translations: {
-        "en": require("./i18n/en.json"),
-        "de": require("./i18n/de.json"),
-        "ru": require("./i18n/ru.json"),
-        "pt": require("./i18n/pt.json"),
-        "nl": require("./i18n/nl.json"),
-        "fr": require("./i18n/fr.json"),
-        "it": require("./i18n/it.json"),
-        "es": require("./i18n/es.json"),
-        "pl": require("./i18n/pl.json"),
-        "zh-cn": require("./i18n/zh-cn.json")
+        'en': require('./i18n/en.json'),
+        'de': require('./i18n/de.json'),
+        'ru': require('./i18n/ru.json'),
+        'pt': require('./i18n/pt.json'),
+        'nl': require('./i18n/nl.json'),
+        'fr': require('./i18n/fr.json'),
+        'it': require('./i18n/it.json'),
+        'es': require('./i18n/es.json'),
+        'pl': require('./i18n/pl.json'),
+        'zh-cn': require('./i18n/zh-cn.json')
       }
     });
 
@@ -84950,7 +84966,7 @@ function build() {
       themeName = _theme;
       build();
     }
-  })), document.getElementById("root"));
+  })), document.getElementById('root'));
 }
 
 build();
@@ -84982,7 +84998,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53485" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49797" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

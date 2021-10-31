@@ -21,113 +21,109 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 const utils = __importStar(require("@iobroker/adapter-core"));
-// Load your modules here, e.g.:
-// import * as fs from "fs";
+//lib for http get
+const axios_1 = __importDefault(require("axios"));
 class Aio extends utils.Adapter {
     constructor(options = {}) {
         super({
             ...options,
             name: 'aio',
         });
+        this.polltime = 0;
+        this.ip = '';
         this.on('ready', this.onReady.bind(this));
-        this.on('stateChange', this.onStateChange.bind(this));
-        // this.on('objectChange', this.onObjectChange.bind(this));
-        // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
     /**
      * Is called when databases are connected and adapter received configuration.
      */
     async onReady() {
-        // Initialize your adapter here
-        // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // this.config:
-        this.log.info('config option1: ' + this.config.option1);
-        this.log.info('config option2: ' + this.config.option2);
-        /*
-        For every state in the system there has to be also an object of type state
-        Here a simple template for a boolean variable named "testVariable"
-        Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-        */
-        await this.setObjectNotExistsAsync('testVariable', {
-            type: 'state',
-            common: {
-                name: 'testVariable',
-                type: 'boolean',
-                role: 'indicator',
-                read: true,
-                write: true,
-            },
-            native: {},
-        });
-        // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-        this.subscribeStates('testVariable');
-        // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
-        // this.subscribeStates('lights.*');
-        // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
-        // this.subscribeStates('*');
-        /*
-            setState examples
-            you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-        */
-        // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync('testVariable', true);
-        // same thing, but the value is flagged "ack"
-        // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync('testVariable', { val: true, ack: true });
-        // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
-        // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync('admin', 'iobroker');
-        this.log.info('check user admin pw iobroker: ' + result);
-        result = await this.checkGroupAsync('admin', 'admin');
-        this.log.info('check group user admin group admin: ' + result);
+        // debug
+        this.log.debug('Config ist set to:');
+        this.log.debug('IP:' + this.config.ip);
+        this.log.debug('Polltime:' + this.config.polltime);
+        //Püfen die übergabe der IP
+        if (this.config.ip) {
+            if (this.config.ip != '0.0.0.0' && this.config.ip != '') {
+                this.config.ip = this.config.ip.replace('http', '');
+                this.config.ip = this.config.ip.replace(':', '');
+                this.config.ip = this.config.ip.replace('/', '');
+                this.ip = this.config.ip;
+                this.log.debug('Final Ip:' + this.ip);
+            }
+            else {
+                this.log.error('No ip is set, adapter stop');
+                return;
+            }
+        }
+        else {
+            this.log.error('No ip is set, adapter stop');
+            return;
+        }
+        //Prüfen Polltime
+        if (this.config.polltime > 0) {
+            this.polltime = this.config.polltime;
+        }
+        else {
+            this.log.error('Wrong Polltime (polltime < 0), adapter stop');
+            return;
+        }
+        //War alles ok, dann können wir die Daten abholen
+        this.adapterIntervals = this.setInterval(() => this.getIntervallData(), this.polltime * 1000);
     }
     /**
      * Is called when adapter shuts down - callback has to be called under any circumstances!
      */
     onUnload(callback) {
         try {
-            // Here you must clear all timeouts or intervals that may still be active
-            // clearTimeout(timeout1);
-            // clearTimeout(timeout2);
-            // ...
-            // clearInterval(interval1);
+            clearInterval(this.adapterIntervals);
             callback();
         }
         catch (e) {
             callback();
         }
     }
-    // If you need to react to object changes, uncomment the following block and the corresponding line in the constructor.
-    // You also need to subscribe to the objects with `this.subscribeObjects`, similar to `this.subscribeStates`.
-    // /**
-    //  * Is called if a subscribed object changes
-    //  */
-    // private onObjectChange(id: string, obj: ioBroker.Object | null | undefined): void {
-    //     if (obj) {
-    //         // The object was changed
-    //         this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-    //     } else {
-    //         // The object was deleted
-    //         this.log.info(`object ${id} deleted`);
-    //     }
-    // }
-    /**
-     * Is called if a subscribed state changes
-     */
-    onStateChange(id, state) {
-        if (state) {
-            // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+    getIntervallData() {
+        try {
+            this.log.debug('call: ' + 'http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json');
+            (0, axios_1.default)('http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json').then(async (response) => {
+                this.log.debug('Get-Data from inverter:');
+                this.log.debug(JSON.stringify(response.data));
+                await this.setStateAsync('ColecTm', { val: response.data.ESSRealtimeStatus.ColecTm, ack: true });
+                await this.setStateAsync('PowerOutletPw', { val: response.data.ESSRealtimeStatus.PowerOutletPw, ack: true });
+                await this.setStateAsync('GridPw', { val: response.data.ESSRealtimeStatus.GridPw, ack: true });
+                await this.setStateAsync('UnitPrice', { val: response.data.ESSRealtimeStatus.UnitPrice, ack: true });
+                await this.setStateAsync('ConsPw', { val: response.data.ESSRealtimeStatus.ConsPw, ack: true });
+                await this.setStateAsync('BtSoc', { val: response.data.ESSRealtimeStatus.BtSoc, ack: true });
+                await this.setStateAsync('PcsPw', { val: response.data.ESSRealtimeStatus.PcsPw, ack: true });
+                await this.setStateAsync('AbsPcsPw', { val: response.data.ESSRealtimeStatus.AbsPcsPw, ack: true });
+                await this.setStateAsync('PvPw', { val: response.data.ESSRealtimeStatus.PvPw, ack: true });
+                await this.setStateAsync('GridStusCd', { val: response.data.ESSRealtimeStatus.GridStusCd, ack: true });
+                await this.setStateAsync('BtStusCd', { val: response.data.ESSRealtimeStatus.BtStusCd, ack: true });
+                await this.setStateAsync('BtPw', { val: response.data.ESSRealtimeStatus.BtPw, ack: true });
+                await this.setStateAsync('OperStusCd', { val: response.data.ESSRealtimeStatus.OperStusCd, ack: true });
+                await this.setStateAsync('EmsOpMode', { val: response.data.ESSRealtimeStatus.EmsOpMode, ack: true });
+                await this.setStateAsync('RankPer', { val: response.data.ESSRealtimeStatus.RankPer, ack: true });
+                await this.setStateAsync('ErrorCnt', { val: response.data.ESSRealtimeStatus.ErrorCnt, ack: true });
+                this.setState('info.connection', true, true);
+            }).catch(error => {
+                this.log.error(error.message);
+                this.setState('info.connection', false, true);
+            });
         }
-        else {
-            // The state was deleted
-            this.log.info(`state ${id} deleted`);
+        catch (error) {
+            this.setState('info.connection', false, true);
+            if (typeof error === 'string') {
+                this.log.error(error);
+            }
+            else if (error instanceof Error) {
+                this.log.error(error.message);
+            }
         }
     }
 }

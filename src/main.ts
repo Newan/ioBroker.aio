@@ -2,14 +2,15 @@
  * Created with @iobroker/create-adapter v1.34.1
  */
 
-// The adapter-core module gives you access to the core ioBroker functions
-// you need to create an adapter
 import * as utils from '@iobroker/adapter-core';
-
-// Load your modules here, e.g.:
-// import * as fs from "fs";
+//lib for http get
+import axios from 'axios';
 
 class Aio extends utils.Adapter {
+
+    private polltime = 0;
+    private ip = '';
+    private adapterIntervals: any; //halten von allen Intervallen
 
     public constructor(options: Partial<utils.AdapterOptions> = {}) {
         super({
@@ -17,9 +18,6 @@ class Aio extends utils.Adapter {
             name: 'aio',
         });
         this.on('ready', this.onReady.bind(this));
-        this.on('stateChange', this.onStateChange.bind(this));
-        // this.on('objectChange', this.onObjectChange.bind(this));
-        // this.on('message', this.onMessage.bind(this));
         this.on('unload', this.onUnload.bind(this));
     }
 
@@ -27,57 +25,41 @@ class Aio extends utils.Adapter {
      * Is called when databases are connected and adapter received configuration.
      */
     private async onReady(): Promise<void> {
-        // Initialize your adapter here
 
-        // The adapters config (in the instance object everything under the attribute "native") is accessible via
-        // this.config:
-        this.log.info('config option1: ' + this.config.option1);
-        this.log.info('config option2: ' + this.config.option2);
+        // debug
+        this.log.debug('Config ist set to:');
 
-        /*
-        For every state in the system there has to be also an object of type state
-        Here a simple template for a boolean variable named "testVariable"
-        Because every adapter instance uses its own unique namespace variable names can't collide with other adapters variables
-        */
-        await this.setObjectNotExistsAsync('testVariable', {
-            type: 'state',
-            common: {
-                name: 'testVariable',
-                type: 'boolean',
-                role: 'indicator',
-                read: true,
-                write: true,
-            },
-            native: {},
-        });
+        this.log.debug('IP:' +  this.config.ip);
+        this.log.debug('Polltime:' + this.config.polltime);
 
-        // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-        this.subscribeStates('testVariable');
-        // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
-        // this.subscribeStates('lights.*');
-        // Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
-        // this.subscribeStates('*');
 
-        /*
-            setState examples
-            you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
-        */
-        // the variable testVariable is set to true as command (ack=false)
-        await this.setStateAsync('testVariable', true);
+        //Püfen die übergabe der IP
+        if(this.config.ip) {
+            if( this.config.ip != '0.0.0.0' && this.config.ip != '') {
+                this.config.ip = this.config.ip.replace('http', '');
+                this.config.ip = this.config.ip.replace(':', '');
+                this.config.ip = this.config.ip.replace('/', '');
+                this.ip = this.config.ip;
+                this.log.debug('Final Ip:' + this.ip);
+            } else {
+                this.log.error('No ip is set, adapter stop')
+                return;
+            }
+        } else {
+            this.log.error('No ip is set, adapter stop')
+            return;
+        }
 
-        // same thing, but the value is flagged "ack"
-        // ack should be always set to true if the value is received from or acknowledged from the target system
-        await this.setStateAsync('testVariable', { val: true, ack: true });
+        //Prüfen Polltime
+        if(this.config.polltime > 0) {
+            this.polltime = this.config.polltime;
+        } else {
+            this.log.error('Wrong Polltime (polltime < 0), adapter stop')
+            return;
+        }
 
-        // same thing, but the state is deleted after 30s (getState will return null afterwards)
-        await this.setStateAsync('testVariable', { val: true, ack: true, expire: 30 });
-
-        // examples for the checkPassword/checkGroup functions
-        let result = await this.checkPasswordAsync('admin', 'iobroker');
-        this.log.info('check user admin pw iobroker: ' + result);
-
-        result = await this.checkGroupAsync('admin', 'admin');
-        this.log.info('check group user admin group admin: ' + result);
+        //War alles ok, dann können wir die Daten abholen
+        this.adapterIntervals = this.setInterval(() => this.getIntervallData(), this.polltime * 1000);
     }
 
     /**
@@ -85,65 +67,53 @@ class Aio extends utils.Adapter {
      */
     private onUnload(callback: () => void): void {
         try {
-            // Here you must clear all timeouts or intervals that may still be active
-            // clearTimeout(timeout1);
-            // clearTimeout(timeout2);
-            // ...
-            // clearInterval(interval1);
-
+            clearInterval(this.adapterIntervals);
             callback();
         } catch (e) {
             callback();
         }
     }
 
-    // If you need to react to object changes, uncomment the following block and the corresponding line in the constructor.
-    // You also need to subscribe to the objects with `this.subscribeObjects`, similar to `this.subscribeStates`.
-    // /**
-    //  * Is called if a subscribed object changes
-    //  */
-    // private onObjectChange(id: string, obj: ioBroker.Object | null | undefined): void {
-    //     if (obj) {
-    //         // The object was changed
-    //         this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-    //     } else {
-    //         // The object was deleted
-    //         this.log.info(`object ${id} deleted`);
-    //     }
-    // }
+    private getIntervallData(): void {
+        try {
+            this.log.debug('call: ' + 'http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json')
+            axios('http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json').then( async response => {
+                this.log.debug('Get-Data from inverter:');
+                this.log.debug(JSON.stringify(response.data));
 
-    /**
-     * Is called if a subscribed state changes
-     */
-    private onStateChange(id: string, state: ioBroker.State | null | undefined): void {
-        if (state) {
-            // The state was changed
-            this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
-        } else {
-            // The state was deleted
-            this.log.info(`state ${id} deleted`);
+                await this.setStateAsync('ColecTm', { val: response.data.ESSRealtimeStatus.ColecTm, ack: true });
+                await this.setStateAsync('PowerOutletPw', { val: response.data.ESSRealtimeStatus.PowerOutletPw, ack: true });
+                await this.setStateAsync('GridPw', { val: response.data.ESSRealtimeStatus.GridPw, ack: true });
+                await this.setStateAsync('UnitPrice', { val: response.data.ESSRealtimeStatus.UnitPrice, ack: true });
+                await this.setStateAsync('ConsPw', { val: response.data.ESSRealtimeStatus.ConsPw, ack: true });
+                await this.setStateAsync('BtSoc', { val: response.data.ESSRealtimeStatus.BtSoc, ack: true });
+                await this.setStateAsync('PcsPw', { val: response.data.ESSRealtimeStatus.PcsPw, ack: true });
+                await this.setStateAsync('AbsPcsPw', { val: response.data.ESSRealtimeStatus.AbsPcsPw, ack: true });
+                await this.setStateAsync('PvPw', { val: response.data.ESSRealtimeStatus.PvPw, ack: true });
+                await this.setStateAsync('GridStusCd', { val: response.data.ESSRealtimeStatus.GridStusCd, ack: true });
+                await this.setStateAsync('BtStusCd', { val: response.data.ESSRealtimeStatus.BtStusCd, ack: true });
+                await this.setStateAsync('BtPw', { val: response.data.ESSRealtimeStatus.BtPw, ack: true });
+                await this.setStateAsync('OperStusCd', { val: response.data.ESSRealtimeStatus.OperStusCd, ack: true });
+                await this.setStateAsync('EmsOpMode', { val: response.data.ESSRealtimeStatus.EmsOpMode, ack: true });
+                await this.setStateAsync('RankPer', { val: response.data.ESSRealtimeStatus.RankPer, ack: true });
+                await this.setStateAsync('ErrorCnt', { val: response.data.ESSRealtimeStatus.ErrorCnt, ack: true });
+
+
+                this.setState('info.connection', true, true);
+            }).catch(error => {
+                this.log.error(error.message)
+                this.setState('info.connection', false, true);
+            });
+        } catch (error: unknown) {
+            this.setState('info.connection', false, true);
+            if (typeof error === 'string') {
+                this.log.error(error);
+            } else if (error instanceof Error) {
+                this.log.error(error.message);
+            }
         }
     }
-
-    // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
-    // /**
-    //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
-    //  * Using this method requires "common.messagebox" property to be set to true in io-package.json
-    //  */
-    // private onMessage(obj: ioBroker.Message): void {
-    //     if (typeof obj === 'object' && obj.message) {
-    //         if (obj.command === 'send') {
-    //             // e.g. send email or pushover or whatever
-    //             this.log.info('send command');
-
-    //             // Send response in callback if required
-    //             if (obj.callback) this.sendTo(obj.from, obj.command, 'Message received', obj.callback);
-    //         }
-    //     }
-    // }
-
 }
-
 if (require.main !== module) {
     // Export the constructor in compact mode
     module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new Aio(options);

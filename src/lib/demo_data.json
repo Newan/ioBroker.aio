@@ -1,0 +1,20 @@
+{
+    "ESSRealtimeStatus":{
+        "ColecTm":"20211029134558",
+        "PowerOutletPw":"0",
+        "GridPw":3.80,
+        "UnitPrice":0.00,
+        "ConsPw":0.38,
+        "BtSoc":93,
+        "PcsPw":4186.00,
+        "AbsPcsPw":4.19,
+        "PvPw":4.19,
+        "GridStusCd":"1",
+        "BtStusCd":"2",
+        "BtPw":0.00,
+        "OperStusCd":"0",
+        "EmsOpMode":"0",
+        "RankPer":0,
+        "ErrorCnt":0
+    }
+}
