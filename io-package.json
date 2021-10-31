@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "aio",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "news": {
+            "0.0.2": {
+                "en": "add typescript / react - bug fixes object types",
+                "de": "Typscript / React hinzugefügt  - Fehler bei Objekttypen behoben",
+                "ru": "добавить машинописный текст / реакцию - исправляет ошибки типов объектов",
+                "pt": "adicionar typescript / react - bug corrige tipos de objetos",
+                "nl": "typoscript toevoegen / reageren - bugfixes objecttypen",
+                "fr": "ajouter dactylographié / réagir - corrections de bugs types d'objets",
+                "it": "aggiungi dattiloscritto / reagisci - correzioni di bug tipi di oggetti",
+                "es": "agregar mecanografiado / reaccionar - errores corrige los tipos de objetos",
+                "pl": "dodaj maszynopis / reaguj - naprawia błędy typów obiektów",
+                "zh-cn": "添加打字稿/反应 - 错误修复对象类型"
+            },
             "0.0.1": {
                 "en": "initial release",
                 "de": "Erstveröffentlichung",

@@ -1,5 +1,5 @@
 {
     "aio adapter settings": "aio的适配器设置",
-    "option1": "option1",
-    "option2": "option2"
+    "ip": "Ip to the inveter page",
+    "polltime": "Polltime"
 }

@@ -84755,57 +84755,57 @@ module.exports = {
 };
 },{}],"i18n/de.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Adaptereinstellungen für aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/ru.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Настройки адаптера для aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/pt.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Configurações do adaptador para aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/nl.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Adapterinstellingen voor aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/fr.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Paramètres d'adaptateur pour aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/it.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Impostazioni dell'adattatore per aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/es.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Ajustes del adaptador para aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/pl.json":[function(require,module,exports) {
 module.exports = {
-  "aio adapter settings": "Ustawienia adaptera dla aio",
-  "option1": "option1",
-  "option2": "option2"
+  "aio adapter settings": "Adapter settings for aio",
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"i18n/zh-cn.json":[function(require,module,exports) {
 module.exports = {
   "aio adapter settings": "aio的适配器设置",
-  "option1": "option1",
-  "option2": "option2"
+  "ip": "Ip to the inveter page",
+  "polltime": "Polltime"
 };
 },{}],"app.tsx":[function(require,module,exports) {
 "use strict";

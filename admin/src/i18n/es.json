@@ -1,5 +1,5 @@
 {
-    "aio adapter settings": "Ajustes del adaptador para aio",
-    "option1": "option1",
-    "option2": "option2"
+    "aio adapter settings": "Adapter settings for aio",
+    "ip": "Ip to the inveter page",
+    "polltime": "Polltime"
 }
