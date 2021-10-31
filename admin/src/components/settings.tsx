@@ -25,8 +25,6 @@ const styles = (theme: Theme): Record<string, CreateCSSProperties> => ({
         width: '100%',
         overflowY: 'scroll',
     },
-    
-    
     input: {
         marginTop: 0,
         minWidth: 400,
