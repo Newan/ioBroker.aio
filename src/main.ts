@@ -76,11 +76,10 @@ class Aio extends utils.Adapter {
 
     private getIntervallData(): void {
         try {
-            this.log.debug('call: ' + 'http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json')
+            this.log.debug('call: ' + 'http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json');
             axios('http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json').then( async response => {
                 this.log.debug('Get-Data from inverter:');
                 this.log.debug(JSON.stringify(response.data));
-
                 await this.setStateAsync('status.ColecTm', { val: response.data.ESSRealtimeStatus.ColecTm, ack: true });
                 await this.setStateAsync('status.PowerOutletPw', { val: response.data.ESSRealtimeStatus.PowerOutletPw, ack: true });
                 await this.setStateAsync('status.GridPw', { val: response.data.ESSRealtimeStatus.GridPw, ack: true });

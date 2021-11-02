@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "aio",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "news": {
+            "0.0.3": {
+                "en": "fix object ids",
+                "de": "Objekt-IDs korrigieren",
+                "ru": "исправить идентификаторы объектов",
+                "pt": "corrigir ids de objetos",
+                "nl": "object-ID's repareren",
+                "fr": "corriger les identifiants d'objet",
+                "it": "correggere gli ID oggetto",
+                "es": "arreglar identificadores de objetos",
+                "pl": "napraw identyfikatory obiektów",
+                "zh-cn": "修复对象 ID"
+            },
             "0.0.2": {
                 "en": "add typescript / react - bug fixes object types",
                 "de": "Typscript / React hinzugefügt  - Fehler bei Objekttypen behoben",

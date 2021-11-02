@@ -94,22 +94,22 @@ class Aio extends utils.Adapter {
             (0, axios_1.default)('http://' + this.ip + '/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json').then(async (response) => {
                 this.log.debug('Get-Data from inverter:');
                 this.log.debug(JSON.stringify(response.data));
-                await this.setStateAsync('ColecTm', { val: response.data.ESSRealtimeStatus.ColecTm, ack: true });
-                await this.setStateAsync('PowerOutletPw', { val: response.data.ESSRealtimeStatus.PowerOutletPw, ack: true });
-                await this.setStateAsync('GridPw', { val: response.data.ESSRealtimeStatus.GridPw, ack: true });
-                await this.setStateAsync('UnitPrice', { val: response.data.ESSRealtimeStatus.UnitPrice, ack: true });
-                await this.setStateAsync('ConsPw', { val: response.data.ESSRealtimeStatus.ConsPw, ack: true });
-                await this.setStateAsync('BtSoc', { val: response.data.ESSRealtimeStatus.BtSoc, ack: true });
-                await this.setStateAsync('PcsPw', { val: response.data.ESSRealtimeStatus.PcsPw, ack: true });
-                await this.setStateAsync('AbsPcsPw', { val: response.data.ESSRealtimeStatus.AbsPcsPw, ack: true });
-                await this.setStateAsync('PvPw', { val: response.data.ESSRealtimeStatus.PvPw, ack: true });
-                await this.setStateAsync('GridStusCd', { val: response.data.ESSRealtimeStatus.GridStusCd, ack: true });
-                await this.setStateAsync('BtStusCd', { val: response.data.ESSRealtimeStatus.BtStusCd, ack: true });
-                await this.setStateAsync('BtPw', { val: response.data.ESSRealtimeStatus.BtPw, ack: true });
-                await this.setStateAsync('OperStusCd', { val: response.data.ESSRealtimeStatus.OperStusCd, ack: true });
-                await this.setStateAsync('EmsOpMode', { val: response.data.ESSRealtimeStatus.EmsOpMode, ack: true });
-                await this.setStateAsync('RankPer', { val: response.data.ESSRealtimeStatus.RankPer, ack: true });
-                await this.setStateAsync('ErrorCnt', { val: response.data.ESSRealtimeStatus.ErrorCnt, ack: true });
+                await this.setStateAsync('status.ColecTm', { val: response.data.ESSRealtimeStatus.ColecTm, ack: true });
+                await this.setStateAsync('status.PowerOutletPw', { val: response.data.ESSRealtimeStatus.PowerOutletPw, ack: true });
+                await this.setStateAsync('status.GridPw', { val: response.data.ESSRealtimeStatus.GridPw, ack: true });
+                await this.setStateAsync('status.UnitPrice', { val: response.data.ESSRealtimeStatus.UnitPrice, ack: true });
+                await this.setStateAsync('status.ConsPw', { val: response.data.ESSRealtimeStatus.ConsPw, ack: true });
+                await this.setStateAsync('status.BtSoc', { val: response.data.ESSRealtimeStatus.BtSoc, ack: true });
+                await this.setStateAsync('status.PcsPw', { val: response.data.ESSRealtimeStatus.PcsPw, ack: true });
+                await this.setStateAsync('status.AbsPcsPw', { val: response.data.ESSRealtimeStatus.AbsPcsPw, ack: true });
+                await this.setStateAsync('status.PvPw', { val: response.data.ESSRealtimeStatus.PvPw, ack: true });
+                await this.setStateAsync('status.GridStusCd', { val: response.data.ESSRealtimeStatus.GridStusCd, ack: true });
+                await this.setStateAsync('status.BtStusCd', { val: response.data.ESSRealtimeStatus.BtStusCd, ack: true });
+                await this.setStateAsync('status.BtPw', { val: response.data.ESSRealtimeStatus.BtPw, ack: true });
+                await this.setStateAsync('status.OperStusCd', { val: response.data.ESSRealtimeStatus.OperStusCd, ack: true });
+                await this.setStateAsync('status.EmsOpMode', { val: response.data.ESSRealtimeStatus.EmsOpMode, ack: true });
+                await this.setStateAsync('status.RankPer', { val: response.data.ESSRealtimeStatus.RankPer, ack: true });
+                await this.setStateAsync('status.ErrorCnt', { val: response.data.ESSRealtimeStatus.ErrorCnt, ack: true });
                 this.setState('info.connection', true, true);
             }).catch(error => {
                 this.log.error(error.message);
