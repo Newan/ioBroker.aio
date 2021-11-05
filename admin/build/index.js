@@ -84756,7 +84756,7 @@ module.exports = {
 },{}],"i18n/de.json":[function(require,module,exports) {
 module.exports = {
   "aio adapter settings": "Adapter settings for aio",
-  "ip": "Ip to the inveter page",
+  "ip": "Ip des Wechselrichters",
   "polltime": "Polltime"
 };
 },{}],"i18n/ru.json":[function(require,module,exports) {
@@ -84998,7 +84998,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56468" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60337" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

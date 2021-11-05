@@ -51,8 +51,8 @@ class Aio extends utils.Adapter {
         if (this.config.ip) {
             if (this.config.ip != '0.0.0.0' && this.config.ip != '') {
                 this.config.ip = this.config.ip.replace('http', '');
-                this.config.ip = this.config.ip.replace(':', '');
-                this.config.ip = this.config.ip.replace('/', '');
+                this.config.ip = this.config.ip.replace('://', '');
+                //this.config.ip = this.config.ip.replace('/', '');
                 this.ip = this.config.ip;
                 this.log.debug('Final Ip:' + this.ip);
             }
@@ -110,6 +110,23 @@ class Aio extends utils.Adapter {
                 await this.setStateAsync('status.EmsOpMode', { val: response.data.ESSRealtimeStatus.EmsOpMode, ack: true });
                 await this.setStateAsync('status.RankPer', { val: response.data.ESSRealtimeStatus.RankPer, ack: true });
                 await this.setStateAsync('status.ErrorCnt', { val: response.data.ESSRealtimeStatus.ErrorCnt, ack: true });
+                this.setState('info.connection', true, true);
+            }).catch(error => {
+                this.log.error(error.message);
+                this.setState('info.connection', false, true);
+            });
+            //Hole noch wetterdaten - s/R3EMSAPP_REAL.ems?file=Weather.json&_=1636144519854
+            (0, axios_1.default)('http://' + this.ip + '/R3EMSAPP_REAL.ems?file=Weather.json').then(async (response) => {
+                this.log.debug('Get-Data from inverter:');
+                this.log.debug(JSON.stringify(response.data));
+                await this.setStateAsync('weather.Time', { val: response.data.WeatherInfo.Time, ack: true });
+                await this.setStateAsync('weather.Weather', { val: response.data.WeatherInfo.Weather, ack: true });
+                await this.setStateAsync('weather.CloudAll', { val: response.data.WeatherInfo.CloudAll, ack: true });
+                await this.setStateAsync('weather.TempUnit', { val: response.data.WeatherInfo.TempUnit, ack: true });
+                await this.setStateAsync('weather.Temperature', { val: response.data.WeatherInfo.Temperature, ack: true });
+                await this.setStateAsync('weather.Humidity', { val: response.data.WeatherInfo.Humidity, ack: true });
+                await this.setStateAsync('weather.WindDirection', { val: response.data.WeatherInfo.WindDirection, ack: true });
+                await this.setStateAsync('weather.WindSpeed', { val: response.data.WeatherInfo.WindSpeed, ack: true });
                 this.setState('info.connection', true, true);
             }).catch(error => {
                 this.log.error(error.message);

@@ -1,0 +1,12 @@
+{
+	"WeatherInfo":{
+	"Time":"20211105213525",
+	"Weather":"10",
+	"CloudAll":100.00,
+	"TempUnit":"℃",
+	"Temperature":7.85,
+	"Humidity":96,
+	"WindDirection":"WSW",
+	"WindSpeed":1.52
+	}
+}

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "aio",
-        "version": "0.0.3",
+        "version": "0.1.0",
         "news": {
+            "0.1.0": {
+                "en": "Added weather infos",
+                "de": "Wetterinfos hinzugefügt",
+                "ru": "Добавлена информация о погоде",
+                "pt": "Adicionadas informações sobre o clima",
+                "nl": "Weerinformatie toegevoegd",
+                "fr": "Ajout d'infos météo",
+                "it": "Aggiunte informazioni meteo",
+                "es": "Información meteorológica añadida",
+                "pl": "Dodano informacje o pogodzie",
+                "zh-cn": "添加了天气信息"
+            },
             "0.0.3": {
                 "en": "fix object ids",
                 "de": "Objekt-IDs korrigieren",
@@ -315,6 +327,110 @@
                 "role": "state",
                 "name": "ErrorCnt",
                 "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.Time",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Time",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.Weather",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Weather",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.CloudAll",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "CloudAll",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.TempUnit",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "TempUnit",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.Temperature",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Temperature",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.Humidity",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Humidity",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.WindDirection",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "WindDirection",
+                "type": "string",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "weather.WindSpeed",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "WindSpeed",
+                "type": "string",
                 "read": true,
                 "write": false,
                 "def": false
