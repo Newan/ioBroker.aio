@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "aio",
-        "version": "0.1.0",
+        "version": "0.1.1",
         "news": {
+            "0.1.1": {
+                "en": "Added new object states",
+                "de": "Neue Objektzustände hinzugefügt",
+                "ru": "Добавлены новые состояния объектов",
+                "pt": "Adicionados novos estados de objeto",
+                "nl": "Nieuwe objectstatussen toegevoegd",
+                "fr": "Ajout de nouveaux états d'objet",
+                "it": "Aggiunti nuovi stati oggetto",
+                "es": "Se agregaron nuevos estados de objetos.",
+                "pl": "Dodano nowe stany obiektów",
+                "zh-cn": "添加了新的对象状态"
+            },
             "0.1.0": {
                 "en": "Added weather infos",
                 "de": "Wetterinfos hinzugefügt",
@@ -129,7 +141,7 @@
             "_id": "status.ColecTm",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "date",
                 "name": "ColecTm",
                 "type": "string",
                 "read": true,
@@ -142,7 +154,7 @@
             "_id": "status.PowerOutletPw",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "PowerOutletPw",
                 "type": "string",
                 "read": true,
@@ -153,7 +165,7 @@
         },
         {
             "_id": "status.GridPw",
-            "type": "state",
+            "type": "value.power.consumption",
             "common": {
                 "role": "state",
                 "name": "GridPw",
@@ -168,7 +180,7 @@
             "_id": "status.UnitPrice",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.default",
                 "name": "UnitPrice",
                 "type": "number",
                 "read": true,
@@ -181,7 +193,7 @@
             "_id": "status.ConsPw",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "ConsPw",
                 "type": "number",
                 "read": true,
@@ -194,7 +206,7 @@
             "_id": "status.BtSoc",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.battery",
                 "name": "BtSoc",
                 "type": "number",
                 "read": true,
@@ -207,7 +219,7 @@
             "_id": "status.PcsPw",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "PcsPw",
                 "type": "number",
                 "read": true,
@@ -220,7 +232,7 @@
             "_id": "status.AbsPcsPw",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "AbsPcsPw",
                 "type": "number",
                 "read": true,
@@ -233,7 +245,7 @@
             "_id": "status.PvPw",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "PvPw",
                 "type": "number",
                 "read": true,
@@ -246,7 +258,7 @@
             "_id": "status.GridStusCd",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "info.status",
                 "name": "GridStusCd",
                 "type": "string",
                 "read": true,
@@ -259,7 +271,7 @@
             "_id": "status.BtStusCd",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "info.status",
                 "name": "BtStusCd",
                 "type": "string",
                 "read": true,
@@ -272,7 +284,7 @@
             "_id": "status.BtPw",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "BtPw",
                 "type": "number",
                 "read": true,
@@ -285,7 +297,7 @@
             "_id": "status.OperStusCd",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "info.status",
                 "name": "OperStusCd",
                 "type": "string",
                 "read": true,
@@ -337,7 +349,7 @@
             "_id": "weather.Time",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "date",
                 "name": "Time",
                 "type": "string",
                 "read": true,
@@ -363,7 +375,7 @@
             "_id": "weather.CloudAll",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.clouds",
                 "name": "CloudAll",
                 "type": "number",
                 "read": true,
@@ -389,7 +401,7 @@
             "_id": "weather.Temperature",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.temperature",
                 "name": "Temperature",
                 "type": "number",
                 "read": true,
@@ -402,7 +414,7 @@
             "_id": "weather.Humidity",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.humidity",
                 "name": "Humidity",
                 "type": "number",
                 "read": true,
@@ -415,7 +427,7 @@
             "_id": "weather.WindDirection",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.direction",
                 "name": "WindDirection",
                 "type": "string",
                 "read": true,
@@ -428,7 +440,7 @@
             "_id": "weather.WindSpeed",
             "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.speed",
                 "name": "WindSpeed",
                 "type": "string",
                 "read": true,

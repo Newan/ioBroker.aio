@@ -44,6 +44,9 @@ Open the URL http://YOUR_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json i
 }
 ```
 ## Changelog
+### 0.1.1
+* (Newan) add new object states
+
 ### 0.1.0
 * (Newan) add weather infos
 
