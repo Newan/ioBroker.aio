@@ -165,9 +165,9 @@
         },
         {
             "_id": "status.GridPw",
-            "type": "value.power.consumption",
+            "type": "state",
             "common": {
-                "role": "state",
+                "role": "value.power.consumption",
                 "name": "GridPw",
                 "type": "number",
                 "read": true,
