@@ -105,6 +105,7 @@
         "extIcon": "https://raw.githubusercontent.com/Newan/ioBroker.aio/master/admin/aio.png",
         "readme": "https://github.com/Newan/ioBroker.aio/blob/master/README.md",
         "loglevel": "info",
+        "tier": 2,
         "mode": "daemon",
         "type": "energy",
         "compact": true,
