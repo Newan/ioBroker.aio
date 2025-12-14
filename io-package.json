@@ -99,7 +99,6 @@
         ],
         "license": "MIT",
         "platform": "Javascript/Node.js",
-        "main": "build/main.js",
         "icon": "aio.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/Newan/ioBroker.aio/master/admin/aio.png",
