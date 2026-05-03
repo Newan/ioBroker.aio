@@ -56,6 +56,8 @@ Open the URL http://YOUR_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json i
 ### 0.0.1
 * (Newan) initial release
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 MIT License
 
