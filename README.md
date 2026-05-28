@@ -44,6 +44,10 @@ Open the URL http://YOUR_IP_HERE/R3EMSAPP_REAL.ems?file=ESSRealtimeStatus.json i
 }
 ```
 ## Changelog
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.1.1
 * (Newan) add new object states
 

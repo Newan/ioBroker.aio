@@ -1,453 +1,455 @@
 {
-    "common": {
-        "name": "aio",
-        "version": "0.1.1",
-        "news": {
-            "0.1.1": {
-                "en": "Added new object states",
-                "de": "Neue Objektzustände hinzugefügt",
-                "ru": "Добавлены новые состояния объектов",
-                "pt": "Adicionados novos estados de objeto",
-                "nl": "Nieuwe objectstatussen toegevoegd",
-                "fr": "Ajout de nouveaux états d'objet",
-                "it": "Aggiunti nuovi stati oggetto",
-                "es": "Se agregaron nuevos estados de objetos.",
-                "pl": "Dodano nowe stany obiektów",
-                "zh-cn": "添加了新的对象状态"
-            },
-            "0.1.0": {
-                "en": "Added weather infos",
-                "de": "Wetterinfos hinzugefügt",
-                "ru": "Добавлена информация о погоде",
-                "pt": "Adicionadas informações sobre o clima",
-                "nl": "Weerinformatie toegevoegd",
-                "fr": "Ajout d'infos météo",
-                "it": "Aggiunte informazioni meteo",
-                "es": "Información meteorológica añadida",
-                "pl": "Dodano informacje o pogodzie",
-                "zh-cn": "添加了天气信息"
-            },
-            "0.0.3": {
-                "en": "fix object ids",
-                "de": "Objekt-IDs korrigieren",
-                "ru": "исправить идентификаторы объектов",
-                "pt": "corrigir ids de objetos",
-                "nl": "object-ID's repareren",
-                "fr": "corriger les identifiants d'objet",
-                "it": "correggere gli ID oggetto",
-                "es": "arreglar identificadores de objetos",
-                "pl": "napraw identyfikatory obiektów",
-                "zh-cn": "修复对象 ID"
-            },
-            "0.0.2": {
-                "en": "add typescript / react - bug fixes object types",
-                "de": "Typscript / React hinzugefügt  - Fehler bei Objekttypen behoben",
-                "ru": "добавить машинописный текст / реакцию - исправляет ошибки типов объектов",
-                "pt": "adicionar typescript / react - bug corrige tipos de objetos",
-                "nl": "typoscript toevoegen / reageren - bugfixes objecttypen",
-                "fr": "ajouter dactylographié / réagir - corrections de bugs types d'objets",
-                "it": "aggiungi dattiloscritto / reagisci - correzioni di bug tipi di oggetti",
-                "es": "agregar mecanografiado / reaccionar - errores corrige los tipos de objetos",
-                "pl": "dodaj maszynopis / reaguj - naprawia błędy typów obiektów",
-                "zh-cn": "添加打字稿/反应 - 错误修复对象类型"
-            },
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
-            }
-        },
-        "titleLang": {
-            "en": "Read values from Hansol Technics AIO system",
-            "de": "Read values from Hansol Technics AIO system",
-            "ru": "Read values from Hansol Technics AIO system",
-            "pt": "Read values from Hansol Technics AIO system",
-            "nl": "Read values from Hansol Technics AIO system",
-            "fr": "Read values from Hansol Technics AIO system",
-            "it": "Read values from Hansol Technics AIO system",
-            "es": "Read values from Hansol Technics AIO system",
-            "pl": "Read values from Hansol Technics AIO system",
-            "zh-cn": "Read values from Hansol Technics AIO system"
-        },
-        "desc": {
-            "en": "aio",
-            "de": "aio",
-            "ru": "aio",
-            "pt": "aio",
-            "nl": "aio",
-            "fr": "aio",
-            "it": "aio",
-            "es": "aio",
-            "pl": "aio",
-            "zh-cn": "aio"
-        },
-        "authors": [
-            "Newan <info@newan.de>"
-        ],
-        "keywords": [
-            "ioBroker",    
-            "ESS",
-            "AIO",
-            "Hansol"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "main": "build/main.js",
-        "icon": "aio.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/Newan/ioBroker.aio/master/admin/aio.png",
-        "readme": "https://github.com/Newan/ioBroker.aio/blob/master/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "energy",
-        "compact": true,
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "materialize": true,
-        "dependencies": [
-            {
-                "js-controller": ">=2.0.0"
-            }
-        ]
+  "common": {
+    "name": "aio",
+    "version": "0.1.1",
+    "news": {
+      "0.1.1": {
+        "en": "Added new object states",
+        "de": "Neue Objektzustände hinzugefügt",
+        "ru": "Добавлены новые состояния объектов",
+        "pt": "Adicionados novos estados de objeto",
+        "nl": "Nieuwe objectstatussen toegevoegd",
+        "fr": "Ajout de nouveaux états d'objet",
+        "it": "Aggiunti nuovi stati oggetto",
+        "es": "Se agregaron nuevos estados de objetos.",
+        "pl": "Dodano nowe stany obiektów",
+        "zh-cn": "添加了新的对象状态"
+      },
+      "0.1.0": {
+        "en": "Added weather infos",
+        "de": "Wetterinfos hinzugefügt",
+        "ru": "Добавлена информация о погоде",
+        "pt": "Adicionadas informações sobre o clima",
+        "nl": "Weerinformatie toegevoegd",
+        "fr": "Ajout d'infos météo",
+        "it": "Aggiunte informazioni meteo",
+        "es": "Información meteorológica añadida",
+        "pl": "Dodano informacje o pogodzie",
+        "zh-cn": "添加了天气信息"
+      },
+      "0.0.3": {
+        "en": "fix object ids",
+        "de": "Objekt-IDs korrigieren",
+        "ru": "исправить идентификаторы объектов",
+        "pt": "corrigir ids de objetos",
+        "nl": "object-ID's repareren",
+        "fr": "corriger les identifiants d'objet",
+        "it": "correggere gli ID oggetto",
+        "es": "arreglar identificadores de objetos",
+        "pl": "napraw identyfikatory obiektów",
+        "zh-cn": "修复对象 ID"
+      },
+      "0.0.2": {
+        "en": "add typescript / react - bug fixes object types",
+        "de": "Typscript / React hinzugefügt  - Fehler bei Objekttypen behoben",
+        "ru": "добавить машинописный текст / реакцию - исправляет ошибки типов объектов",
+        "pt": "adicionar typescript / react - bug corrige tipos de objetos",
+        "nl": "typoscript toevoegen / reageren - bugfixes objecttypen",
+        "fr": "ajouter dactylographié / réagir - corrections de bugs types d'objets",
+        "it": "aggiungi dattiloscritto / reagisci - correzioni di bug tipi di oggetti",
+        "es": "agregar mecanografiado / reaccionar - errores corrige los tipos de objetos",
+        "pl": "dodaj maszynopis / reaguj - naprawia błędy typów obiektów",
+        "zh-cn": "添加打字稿/反应 - 错误修复对象类型"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "zh-cn": "首次出版"
+      }
     },
-    "native": {
-        "demoData": true,
-        "polltime": 100,
-        "ip": "0.0.0.0"
+    "titleLang": {
+      "en": "Read values from Hansol Technics AIO system",
+      "de": "Read values from Hansol Technics AIO system",
+      "ru": "Read values from Hansol Technics AIO system",
+      "pt": "Read values from Hansol Technics AIO system",
+      "nl": "Read values from Hansol Technics AIO system",
+      "fr": "Read values from Hansol Technics AIO system",
+      "it": "Read values from Hansol Technics AIO system",
+      "es": "Read values from Hansol Technics AIO system",
+      "pl": "Read values from Hansol Technics AIO system",
+      "zh-cn": "Read values from Hansol Technics AIO system"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "If communication with aio works",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.ColecTm",
-            "type": "state",
-            "common": {
-                "role": "date",
-                "name": "ColecTm",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.PowerOutletPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "PowerOutletPw",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.GridPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "GridPw",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.UnitPrice",
-            "type": "state",
-            "common": {
-                "role": "value.default",
-                "name": "UnitPrice",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.ConsPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "ConsPw",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.BtSoc",
-            "type": "state",
-            "common": {
-                "role": "value.battery",
-                "name": "BtSoc",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.PcsPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "PcsPw",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.AbsPcsPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "AbsPcsPw",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.PvPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "PvPw",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.GridStusCd",
-            "type": "state",
-            "common": {
-                "role": "info.status",
-                "name": "GridStusCd",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.BtStusCd",
-            "type": "state",
-            "common": {
-                "role": "info.status",
-                "name": "BtStusCd",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.BtPw",
-            "type": "state",
-            "common": {
-                "role": "value.power.consumption",
-                "name": "BtPw",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.OperStusCd",
-            "type": "state",
-            "common": {
-                "role": "info.status",
-                "name": "OperStusCd",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.EmsOpMode",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "EmsOpMode",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.RankPer",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "RankPer",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "status.ErrorCnt",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "ErrorCnt",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.Time",
-            "type": "state",
-            "common": {
-                "role": "date",
-                "name": "Time",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.Weather",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "Weather",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.CloudAll",
-            "type": "state",
-            "common": {
-                "role": "value.clouds",
-                "name": "CloudAll",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.TempUnit",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "TempUnit",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.Temperature",
-            "type": "state",
-            "common": {
-                "role": "value.temperature",
-                "name": "Temperature",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.Humidity",
-            "type": "state",
-            "common": {
-                "role": "value.humidity",
-                "name": "Humidity",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.WindDirection",
-            "type": "state",
-            "common": {
-                "role": "value.direction",
-                "name": "WindDirection",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "weather.WindSpeed",
-            "type": "state",
-            "common": {
-                "role": "value.speed",
-                "name": "WindSpeed",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }  
-    ]
+    "desc": {
+      "en": "aio",
+      "de": "aio",
+      "ru": "aio",
+      "pt": "aio",
+      "nl": "aio",
+      "fr": "aio",
+      "it": "aio",
+      "es": "aio",
+      "pl": "aio",
+      "zh-cn": "aio"
+    },
+    "authors": [
+      "Newan <info@newan.de>"
+    ],
+    "keywords": [
+      "ioBroker",
+      "ESS",
+      "AIO",
+      "Hansol"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "main": "build/main.js",
+    "icon": "aio.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/Newan/ioBroker.aio/master/admin/aio.png",
+    "readme": "https://github.com/Newan/ioBroker.aio/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "energy",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "adminUI": {
+      "config": "materialize"
+    }
+  },
+  "native": {
+    "demoData": true,
+    "polltime": 100,
+    "ip": "0.0.0.0"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If communication with aio works",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.ColecTm",
+      "type": "state",
+      "common": {
+        "role": "date",
+        "name": "ColecTm",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.PowerOutletPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "PowerOutletPw",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.GridPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "GridPw",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.UnitPrice",
+      "type": "state",
+      "common": {
+        "role": "value.default",
+        "name": "UnitPrice",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.ConsPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "ConsPw",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.BtSoc",
+      "type": "state",
+      "common": {
+        "role": "value.battery",
+        "name": "BtSoc",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.PcsPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "PcsPw",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.AbsPcsPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "AbsPcsPw",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.PvPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "PvPw",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.GridStusCd",
+      "type": "state",
+      "common": {
+        "role": "info.status",
+        "name": "GridStusCd",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.BtStusCd",
+      "type": "state",
+      "common": {
+        "role": "info.status",
+        "name": "BtStusCd",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.BtPw",
+      "type": "state",
+      "common": {
+        "role": "value.power.consumption",
+        "name": "BtPw",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.OperStusCd",
+      "type": "state",
+      "common": {
+        "role": "info.status",
+        "name": "OperStusCd",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.EmsOpMode",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "EmsOpMode",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.RankPer",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "RankPer",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "status.ErrorCnt",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "ErrorCnt",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.Time",
+      "type": "state",
+      "common": {
+        "role": "date",
+        "name": "Time",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.Weather",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Weather",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.CloudAll",
+      "type": "state",
+      "common": {
+        "role": "value.clouds",
+        "name": "CloudAll",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.TempUnit",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "TempUnit",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.Temperature",
+      "type": "state",
+      "common": {
+        "role": "value.temperature",
+        "name": "Temperature",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.Humidity",
+      "type": "state",
+      "common": {
+        "role": "value.humidity",
+        "name": "Humidity",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.WindDirection",
+      "type": "state",
+      "common": {
+        "role": "value.direction",
+        "name": "WindDirection",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "weather.WindSpeed",
+      "type": "state",
+      "common": {
+        "role": "value.speed",
+        "name": "WindSpeed",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
 }
